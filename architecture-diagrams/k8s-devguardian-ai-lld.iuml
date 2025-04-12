@@ -1,0 +1,24 @@
+@startuml
+package "DevGuardian Internals" {
+    [CLI Entrypoint] --> [Cluster Scanner]
+
+    [Cluster Scanner] --> [Resource Fetcher]
+    [Resource Fetcher] --> [K8s API Server]
+
+    [Cluster Scanner] --> [Policy Engine]
+    [Policy Engine] --> [OPA + Rego Runtime]
+    [Policy Engine] --> [Built-in Rules]
+    [Policy Engine] --> [Custom Rego Rules]
+
+    [Policy Engine] --> [Findings]
+
+    [Findings] --> [AI Explainer]
+    [AI Explainer] --> [LLM API or Ollama]
+    [AI Explainer] --> [Explanation + Fix Suggestions]
+
+    [Findings] --> [Output Generator]
+    [Explanation + Fix Suggestions] --> [Output Generator]
+
+    [Output Generator] --> [CLI / JSON / HTML Report]
+}
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+!define RECTANGLE class
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+RECTANGLE User {
+    DevOps Engineer
+    Security Engineer
+}
+
+RECTANGLE CLI {
+    devguardian-audit
+}
+
+RECTANGLE K8sAPI {
+    Kubernetes Cluster
+}
+
+RECTANGLE Engine {
+    Scanner
+    Policy Evaluator (OPA)
+    AI Explainer
+}
+
+RECTANGLE Outputs {
+    CLI Report
+    JSON/HTML Output
+    Fix Suggestions
+}
+
+User --> CLI : runs command
+CLI --> K8sAPI : fetch resources
+CLI --> Engine : pass objects for scanning
+Engine --> Outputs : structured + explained results
+@enduml

@@ -1,8 +1,8 @@
 /*
-Copyright © 2025 Vibhor Dubey
+Copyright 2025 Vibhor Dubey
 
 */
-package cmd
+package main
 
 import (
 	"os"
@@ -14,14 +14,8 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "k8s-devguardian-ai",
 	Short: "DevGuardian is your AI-powered K8s security auditor",
-	Long: `A longer description that spans multiple lines and likely contains
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Long:  `DevGuardian is your AI-powered K8s security auditor`,
+	// Do NOT set Run here. Subcommands like 'audit' will handle their own logic.
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -43,4 +37,8 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func main() {
+	Execute()
 }

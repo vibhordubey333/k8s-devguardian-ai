@@ -1,8 +1,4 @@
-/*
-Copyright 2025 Vibhor Dubey
-
-*/
-package main
+package cmd
 
 import (
 	"os"
@@ -15,7 +11,6 @@ var rootCmd = &cobra.Command{
 	Use:   "k8s-devguardian-ai",
 	Short: "DevGuardian is your AI-powered K8s security auditor",
 	Long:  `DevGuardian is your AI-powered K8s security auditor`,
-	// Do NOT set Run here. Subcommands like 'audit' will handle their own logic.
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -37,8 +32,4 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-}
-
-func main() {
-	Execute()
 }
